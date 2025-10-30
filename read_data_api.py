@@ -6,6 +6,11 @@ import os
 token = os.getenv("API_TOKEN") # for private api
 print(f"Toekn: {token}")
 
+if token=="1234abcd":
+    print("Correct")
+else:
+    print('incorrect')
+
 
 # response = requests.get('https://jsonplaceholder.typicode.com/users')
 # data = response.json()
