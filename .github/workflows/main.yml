@@ -1,0 +1,27 @@
+name: API ETL Pipeline
+
+# trigger
+
+on:
+    push:
+        branches:
+        - main
+
+jobs:
+    read-from-api:
+        runs-on: ubuntu-latest
+         
+        steps:
+            - name: checkout Code
+              uses: actions/checkout@v2
+
+            - name: set python
+              uses: actions/setup-python@v6
+              with:
+                python-version: '3.10'
+            
+            - name: install dependencies
+              run: pip install -r requirements.txt
+
+            - name: get data from API
+              run: python read_data_api.py
